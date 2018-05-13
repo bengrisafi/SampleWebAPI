@@ -6,3 +6,10 @@ install:
 script: 
   - xbuild /p:Configuration=Release SampleWebAPI.sln
   - mono ./testrunner/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe ./SampleWebAPITests/bin/Release/SampleWebAPITests.dll
+
+deploy:
+  provider: azure_web_apps
+  username: azure_deployment_user
+  password: azure_deployment_password
+  site: azure_deployment_sitename
+  on: dev
