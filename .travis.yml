@@ -1,11 +1,9 @@
 language: csharp
-mono: none
-dotnet: 2.1.0
-
+solution: SampleWebAPI.sln
 install:
-- dotnet restore
-
+  - nuget restore SampleWebAPI.sln
+  - nuget install NUnit.Runners -Version 3.4.1 -OutputDirectory testrunner
 script: 
-- dotnet build
-- dotnet test SampleWebAPITests/ProductControllerTests.cs
+  - xbuild /p:Configuration=Release SampleWebAPI.sln
+  - mono ./testrunner/NUnit.Runners.3.4.1/tools/nunit-console.exe ./SampleWebAPITests/bin/Release/ProductControllerTests.cs
 
