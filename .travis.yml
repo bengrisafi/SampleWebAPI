@@ -8,9 +8,15 @@ script:
   - mono ./testrunner/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe ./SampleWebAPITests/bin/Release/SampleWebAPITests.dll
 
 deploy:
-  provider: azure_web_apps
   username: $azure_deployment_user
   password: $azure_deployment_password
   site: "pl-samplewebapi-demo"
-  verbose: true
-  on: dev
+  - provider: azure_web_apps
+    verbose: true
+    slot: "pl-samplewebapi-staging"
+    on: dev
+  - provider: azure_web_apps
+    verbose: true
+    slot: "pl-samplewebapi-prod
+    on: master
+
