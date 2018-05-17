@@ -14,9 +14,9 @@ deploy:
   - provider: azure_web_apps
     verbose: true
     slot: "pl-samplewebapi-staging"
-    on: dev
+  on: dev
   - provider: azure_web_apps
     verbose: true
-    slot: "pl-samplewebapi-prod
-    on: master
+    slot: "pl-samplewebapi-prod"
+  on: master
 
